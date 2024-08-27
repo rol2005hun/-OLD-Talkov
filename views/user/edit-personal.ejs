@@ -1,0 +1,42 @@
+<%- include('../partials/header') %>
+<div class="container col-lg-8">
+    <div class="card">
+        <h5 class="card-header">
+            Profil szerkesztése
+        </h5>
+        <div class="card-body">
+            <form action="/profile/<%= currentUser._id  %>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <label for="fname">Vezetéknév</label>
+                    <input type="text" name="profile[firstname]" id="fname" class="form-control" value="<%=user.firstname  %>">
+                </div>
+                <div class="form-group">
+                    <label for="lname">Keresztnév</label>
+                    <input type="text" name="profile[lastname]" id="lname" class="form-control" value="<%=user.lastname  %> ">
+                </div>
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <input type="text" name="profile[bio]" id="bio" class="form-control" value="<%=user.bio  %> ">
+                </div>
+                <div class="form-group">
+                    <label for="hometown">Otthon</label>
+                    <input type="text" name="profile[hometown]" id="hometown" class="form-control" value="<%=user.hometown  %> ">
+                </div>
+                <div class="form-group">
+                    <label for="workplace">Munkahely</label>
+                    <input type="text" name="profile[workplace]" id="workplace" class="form-control" value="<%=user.workplace  %> ">
+                </div>
+                <div class="form-group">
+                    <label for="education">Iskola</label>
+                    <input type="text" name="profile[education]" id="education" class="form-control" value="<%=user.education  %> ">
+                </div>
+                <div class="form-group">
+                    <label for="contact">Elérési útvonalak</label>
+                    <input type="tel" name="profile[contact]" id="contact" class="form-control" value="<%=user.contact  %> ">
+                </div>
+                <button type="submit" class="btn btn-primary">Szerkesztés</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer') %>

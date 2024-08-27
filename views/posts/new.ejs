@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+<div class="container">
+<h1>Új bejegyzés létrehozása</h1>
+<form method="POST" action="/posts">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Név</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name" required autofocus>
+
+    </div>
+    <div class="form-group">
+        <label for="desc">Szöveg</label>
+        <textarea name="desc" id="desc" class="form-control" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="image">Kép/videó csatolása</label>
+        <input type="file" id="image" class="form-control-file" name="image" accept="image/*">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Közzétesz</button>
+</form>
+</div>
+<%- include('../partials/footer') %>

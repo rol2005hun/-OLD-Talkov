@@ -1,0 +1,60 @@
+<%- include('../partials/header') %>
+<div class="container col-lg-8">
+    <div class="text-center">
+        <div class="card mb-2" style="border-radius: 10px; width: 35%; margin: auto;">
+            <div class="card-body">
+                <h5 class="card-title" style="color: black;">Profil szerkesztése</h5>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-2" style="border-radius: 10px;">
+                <div class="card-body">
+                    <h5 class="card-title">Menüpontok</h5>
+                    <div class="card-body text-center">
+                        <a href="/profile/<%=user._id  %>/edit-general" class="btn btn-secondary btn-block"><i class="fa fa-pencil "
+                                aria-hidden="true"></i> Általános adatok szerkesztése </a><br>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="/profile/<%=user._id  %>/edit-personal" class="btn btn-secondary btn-block"><i class="fa fa-pencil "
+                                aria-hidden="true"></i> Személyes adatok szerkesztése </a><br>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="/profile/<%=user._id  %>/themes" class="btn btn-secondary btn-block"><i class="fa fa-pencil "
+                                aria-hidden="true"></i> Témák </a><br>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="/profile/<%=user._id  %>?_method=DELETE" class="btn btn-secondary btn-block"><i class="fa fa-trash-o "
+                                aria-hidden="true"></i> Profil törlése </a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-2" style="border-radius: 10px;">
+                <div class="card-body">
+                    <h5 class="card-title">Menüpontok</h5>
+                    <div class="card-body text-center">
+                        <a href="" class="btn btn-secondary btn-block"><i class="fa fa-pencil "
+                                aria-hidden="true"></i> Hamarosan... </a><br>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="" class="btn btn-secondary btn-block"><i class="fa fa-pencil "
+                                aria-hidden="true"></i> Hamarosan... </a><br>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="" class="btn btn-secondary btn-block"><i class="fa fa-pencil "
+                                aria-hidden="true"></i> Hamarosan... </a><br>
+                    </div>
+                    <div class="card-body text-center">
+                        <a href="" class="btn btn-secondary btn-block"><i class="fa fa-trash-o "
+                                aria-hidden="true"></i> Hamarosan... </a><br>
+                    </div>
+                </div>
+            </div>*
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer') %>
