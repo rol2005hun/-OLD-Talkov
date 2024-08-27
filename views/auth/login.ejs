@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+<div class=" text-center">
+    <div class="form-signin">
+        <form method="POST" action="/login">
+            <h1 class="h3 mb-3 font-weight-normal">Bejelentkezés</h1>
+            <br>
+            <h6>A bejelentkezéssel elfogadod a <a href="/tos">ToS-t!</a></h6>
+            <label for="username" class="sr-only">Felhasználónév</label>
+            <input type="text" id="username" class="form-control" placeholder="Felhasználónév" required autofocus
+                name="username">
+            <label for="inputPassword" class="sr-only">Jelszó</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Jelszó" required
+                name="password">
+            <button class="btn btn-lg btn-success btn-block mb-3" type="submit">Bejelentkezés</button>
+            Új vagy itt? <a href="/register" class="mr-2">Regisztrálj!</a>
+        </form>
+
+    </div>
+</div>
+<script data-ad-client="ca-pub-6531021873815009" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<%- include('../partials/footer') %>

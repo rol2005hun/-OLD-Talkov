@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Talkov</title>
+    <script data-ad-client="ca-pub-6531021873815009" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <link rel="icon" href="assets/images/logo.jpeg" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, 
+maximum-scale=1.0, user-scalable=no" charset="utf-8"/>
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <script data-ad-client="ca-pub-6531021873815009" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script data-ad-client="ca-pub-6531021873815009" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- CSS csak -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script data-ad-client="ca-pub-6531021873815009" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light mb-2">
+        <div class="container">
+            <a class="navbar-brand text-white font-weight-bold" href="/posts">Talkov</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                <% if (!currentUser){ %>
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link icons" href="/login">Bejelentkezés</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link icons" href="/register">Regisztráció</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link icons" href="https://discord.gg/kAYw8yu" data-toggle="tooltip" data-placement="bottom"
+                            title="Kattints ide, hogy csatlakozz a Discord Szerverünkre!">
+                            Discord Szerverünk</a>
+                    </li>
+                </ul>
+                <%}else{ %>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link icons" href="/friends" data-toggle="tooltip" data-placement="bottom"
+                            title="Kattints ide, hogy megnézhesd a felhasználókat!">
+                            Felhasználók keresése</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link icons" href="/globalchat" data-toggle="tooltip" data-placement="bottom"
+                            title="Kattints ide, hogy megnézhesd a Chat-et!">
+                            Global Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link icons" href="https://discord.gg/kAYw8yu" data-toggle="tooltip" data-placement="bottom"
+                            title="Kattints ide, hogy csatlakozz a Discord Szerverünkre!">
+                            Discord Szerverünk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link icons" href="/tos" data-toggle="tooltip" data-placement="bottom"
+                            title="Kattints ide, hogy megnézhesd a Felhasználási Feltételeket">
+                            ToS</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link user" href="/profile/<%=currentUser._id  %> " data-toggle="tooltip"
+                            data-placement="bottom" title="Kattints ide, hogy megnézhesd a profilodat!"> <%= currentUser.username %></a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="nav-link icons" data-toggle="modal" data-target="#newpost" title="Kattints ide, hogy készíts bejegyzést!">Bejegyzés készítése</div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link icons" href="/logout" data-toggle="tooltip"
+                        data-placement="bottom" title="Kattints ide, hogy kijelentkezz a profilodból!">Kijelentkezés</a>
+                    </li>
+                </ul>
+                <%} %>
+            </div>
+        </div>
+    </nav>
+    <br><br><br><br>
+    <div class="container">
+        <% if (error && error.length>0){ %>
+        <div class="alert alert-danger" role="alert">
+            <%=error  %>
+        </div>
+        <% } %>
+        <% if (success && success.length>0){ %>
+        <div class="alert alert-success" role="alert">
+            <%=success  %>
+        </div>
+        <% } %>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="newpost" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+        aria-labelledby="newpostLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newpostLabel">Bejegyzés készítése</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="/posts">
+                        <div class="form-group">
+                            <textarea name="desc" id="desc" class="form-control" rows="6" cols="50"
+                                placeholder="Írd ide a bejegyzésed szövegét, illetve csatolj képet is ha szeretnél" required></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Közzétesz</button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>

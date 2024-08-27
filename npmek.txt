@@ -1,0 +1,1 @@
+npm install body-parser connect-flash ejs express express-session method-override mongoose passport passport-local passport-local-mongoose socket.io

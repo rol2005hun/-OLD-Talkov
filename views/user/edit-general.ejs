@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+<div class="container col-lg-8">
+    <div class="card">
+        <h5 class="card-header">
+            Profil szerkesztése
+        </h5>
+        <div class="card-body">
+            <form action="/profile/<%= currentUser._id  %>?_method=PUT" method="POST">
+                <div class="form-group">
+                    <label for="fname">Felhasználónév</label>
+                    <input type="text" name="profile[username]" id="uname" class="form-control" value="<%=user.username  %>">
+                </div>
+                <div class="form-group">
+                    <label for="fname">Email cím</label>
+                    <input type="text" name="profile[email]" id="email" class="form-control" value="<%=user.email  %>">
+                </div>
+                <div class="form-group">
+                    <label for="fname">Jelszó</label>
+                    <input type="text" name="profile[password]" id="pw" class="form-control" value="<%=user.password  %>">
+                </div>
+                <button type="submit" class="btn btn-primary">Szerkesztés</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer') %>
