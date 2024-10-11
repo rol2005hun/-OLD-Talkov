@@ -22,7 +22,7 @@
                     <div class="row col-12">
                         <a href="/profile/<%=post.author.id %>"><h5 class="card-title"><%=post.author.username  %> </h5></a>
                         <small class="text-muted ml-auto"><%=post.created.toDateString() %> </small>
-                        <% if (currentUser && post.author.id.equals(currentUser._id) || currentUser.admin == 1 || currentUser.developer == 1) {%>
+                        <% if (currentUser && post.author.id.toString() === currentUser._id.toString() || currentUser.admin == 1 || currentUser.developer == 1) { %>
                         <div class="dropdown">
                             <a class="no_outline" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -75,7 +75,7 @@
                             </div>
                             <div class="row col-12">
                                 <p><%=comment.text  %> </p>
-                                <% if (currentUser && comment.author.id.equals(currentUser._id) || currentUser.admin == 1 || currentUser.developer == 1) {%>
+                                <% if (currentUser && post.author.id.toString() === currentUser._id.toString() || currentUser.admin == 1 || currentUser.developer == 1) { %>
                                 <div class="dropdown ml-auto">
                                     <a class="no_outline" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
                                         aria-haspopup="true" aria-expanded="false">
