@@ -18,7 +18,7 @@ const express = require("express"),
   PORT = process.env.PORT || 8000;
 
 //App konfigolása
-mongoose.connect("mongodb+srv://talkov:talkov@cluster1.guytg.mongodb.net/talkov?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://viewfy:viewfy@viewfy.zrgs7.mongodb.net/?retryWrites=true&w=majority&appName=Viewfy", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
